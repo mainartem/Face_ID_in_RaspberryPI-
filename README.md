@@ -3,11 +3,11 @@
 
 ## Системные требования
 * Raspberry pi 3B+ (или старшие модели) или компьютер под управлением windows
-* Python version 3.10 **Обезательно!!!**
+* Python version 3.10 **Обязательно!!!**
 * Установленный git 
 > *Обратите внимание, что на Windows сервер правильно установится только на версии python 3.10*
-### Установка на компьютер под управлением Windows (server.py) и установка клиента на том же компьютер (client.py)
-## server
+## Установка на компьютер под управлением Windows (server.py) и установка клиента на том же компьютер (client.py)
+### установка
 1. Скопировать репозиторий
 `git clone https://github.com/mainartem/Face_ID_in_RaspberryPI-.git`
 2. Создать виртуальное окружение
@@ -17,21 +17,32 @@ python -m venv face-id-venv
 ```
 3. Установить библиотеки
 ```
-source face-id-venv/bin/activate
+face-id-venv\Scripts\activate.bat
 pip install dlib-19.24.2-cp310-cp310-win_amd64.whl
 pip install -r requirements.txt
 ```
-## client 
-1. Скопировать репозиторий
-`git clone https://github.com/mainartem/Face_ID_in_RaspberryPI-.git`
-2. Создать виртуальное окружение
+### запуск
+
+#### создание базы данных
+
+1. Запустить скрипт для добавления лица в базу данных
 ```
-cd Face_ID_in_RaspberryPI-
-python -m venv face-id-venv
+python write.py
 ```
-3. Установить библиотеки
+2. Дождаться запуска интерфейса
+3. Когда ваше лицо будет рамке, нажмите клавишу пробел
+4. Запишите в консоле ваше имя
+
+#### сервер
+
 ```
-pip install python-opencv
+python server.py
+```
+
+#### клиент
+
+```
+python client.py
 ```
 
 ### Установка на сервер под управлением Raspberry Pi OS (server.py) и установка клиента на компьютре под управлением Windows

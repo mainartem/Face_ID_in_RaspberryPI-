@@ -7,7 +7,7 @@ from safetensors.numpy import save_file
 print(cv2.__version__)
 
 capture = cv2.VideoCapture(0)
-face_cascade = cv2.CascadeClassifier("../Xacaton/haarcascade_frontalface_alt.xml")
+face_cascade = cv2.CascadeClassifier("haarcascade_frontalface_alt.xml")
 font = cv2.FONT_HERSHEY_SIMPLEX
 
 face_code = None
@@ -41,7 +41,7 @@ while running:
     if cv2.getWindowProperty('from camera', cv2.WND_PROP_VISIBLE) < 1:
         break
 
-face_id_path = "../Xacaton/face_id.safetensors"
+face_id_path = "face_id.safetensors"
 if os.path.isfile(face_id_path):
     face_id = {}
     with safe_open(face_id_path, framework="np", device="cpu") as f:
