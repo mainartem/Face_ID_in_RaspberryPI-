@@ -59,7 +59,7 @@ while True:
                     results = face_recognition.compare_faces(list(face_id.values()), face_code)
                     names = [name for name, result in zip(face_id.keys(), results) if result]
                     print(names)
-                cv2.rectangle(copyImage, (x, y), (x + w, y + h), (0, 255, 255), 15)
+                cv2.rectangle(copyImage, (x, y), (x + w, y + h), (255, 0, 0), 2)
                 if len(names) > 0:
                     name = str(names[0])
                 else:
@@ -71,7 +71,7 @@ while True:
                 text_width = textSize[0]
                 text_height = textSize[1]
 
-                cv2.rectangle(copyImage, (x, y + h - text_height - 10), (x + w, y + h), (0, 255, 255), 15)
+                cv2.rectangle(copyImage, (x, y + h - text_height - 10), (x + w, y + h), (255, 0, 0), 2)
                 cv2.putText(copyImage, name, (x, y + h), font, 1, (255, 255, 255), 2)
 
             a = pickle.dumps(copyImage)
